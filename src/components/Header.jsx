@@ -22,25 +22,11 @@ const LinkWrapper = styled.div`
     margin-right: 20px;
 `
 
-const LinkStyle = styled.a`
+const LinkStyle = styled(Link)`
     margin: auto 20px;
     color: ${colors.primary};
     font-weight: bold;
 `
-// function Header () {
-//     return (
-//         <NavStyle>
-//             <Link>
-//             <img src={fysLogo} alt="logo de Find your Superhero"/>
-//             </Link>
-//             <div>
-//             <LinksDiv to="/">
-//             Trouver le héros
-//             </LinksDiv>
-//             </div>
-//         </NavStyle>
-//     )
-// }
 
 function Header() {
     return (
@@ -49,8 +35,10 @@ function Header() {
                 <MainLogo src={fysLogo} alt="logo de Find your Superhero" />
             </a>
             <LinkWrapper>
-                <LinkStyle href="/">Voir des exemples</LinkStyle>
-                <LinkStyle href="/">Trouver le héros</LinkStyle>
+                {/* <LinkStyle href="/character">Voir des exemples</LinkStyle>
+                <LinkStyle href="/">Trouver le héros</LinkStyle> */}
+                <LinkStyle to="/character">Voir des exemples</LinkStyle>
+                <LinkStyle to="/">Trouver un héros</LinkStyle>
             </LinkWrapper>
         </NavStyle>
     )

@@ -64,8 +64,8 @@ function Home() {
             </H2Style>
             <FormStyle>
                 <LabelStyle>
-                    Entre ici le nom (en Anglais) du superhéros que tu recherche
-                    :
+                    Entre ici le nom (en Anglais) du superhéros que tu
+                    recherches :
                 </LabelStyle>
                 <InputStyled placeholder=" par exemple : batman, human torch..." />
                 <p>
