@@ -1,5 +1,8 @@
 import styled from 'styled-components'
 import colors from '../utils/colors'
+import { useState, useEffect } from 'react'
+
+// Style part//
 
 const HomeStyle = styled.div`
     display: flex;
@@ -52,8 +55,19 @@ const ButtonStyle = styled.button`
     color: black;
     text-align: center;
     font-size: 20px;
+    align-self: center;
 `
+
+// Functions part //
+
 function Home() {
+    const [textValue, setTextValue] = useState('')
+
+    const searchCharacter = (e) => {
+        e.preventDefault()
+        console.log(textValue)
+    }
+
     return (
         <HomeStyle>
             <H1Style>⭐Bienvenue sur Find your Hero ⭐</H1Style>
@@ -67,13 +81,23 @@ function Home() {
                     Entre ici le nom (en Anglais) du superhéros que tu
                     recherches :
                 </LabelStyle>
-                <InputStyled placeholder=" par exemple : batman, human torch..." />
+                <InputStyled
+                    name="characterInput"
+                    type="text"
+                    placeholder=" par exemple : batman, human torch..."
+                    onChange={(e) => setTextValue(e.target.value)}
+                />
                 <p>
                     Et clique sur le bouton ci-après pour voir si je le trouve
                     👀
                 </p>
+                <ButtonStyle onClick={(e) => searchCharacter(e)}>
+                    C'est parti 👀
+                </ButtonStyle>
             </FormStyle>
-            <ButtonStyle> C'est parti 👀</ButtonStyle>
+            {/* <ButtonStyle onClick={() => searchCharacter()}>
+                C'est parti 👀
+            </ButtonStyle> */}
             <p>🚲</p>
         </HomeStyle>
     )
