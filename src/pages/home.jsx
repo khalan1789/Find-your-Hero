@@ -17,12 +17,13 @@ const HomeStyle = styled.div`
     align-items: center;
     background-color: ${colors.primary};
     min-height: 100vh;
-    color: white;
+    color: ${colors.textColor};
     padding: 2%;
 `
 const H1Style = styled.h1`
     text-align: center;
     margin-bottom: 80px;
+    display: flex;
 `
 
 const H2Style = styled.h2`
@@ -80,6 +81,7 @@ const ButtonLinkStyle = styled(Link)`
     font-weight: 600;
 `
 // Functions part //
+
 // function fetchData(name) {
 //     useEffect(() => {
 //         fetch(
@@ -103,7 +105,7 @@ function Home() {
     }
     return (
         <HomeStyle>
-            <H1Style>⭐Bienvenue sur Find your Hero ⭐</H1Style>
+            <H1Style>⭐Bienvenue sur Find your SuperHero ⭐</H1Style>
             <H2Style>
                 Ce site te permets de chercher des images de tes superhéros
                 préférés ou non et d'obtenir quelques informations dessus. Sympa
@@ -149,20 +151,3 @@ function Home() {
 }
 
 export default Home
-
-//  Partie de code à conserver pour plus tard/ou à mettre dans un autre composant
-
-// fetch(`https://superheroapi.com/api.php/4714210408672847/search/${textValue}`)
-//     .then((response) => response.json())
-//     .then((data) => {
-//         console.log(data)
-//         let results = data.results
-//         console.log('tableau data results :' + results)
-//         results.map(({ name, id, image }, index) => {
-//             return (
-//                 console.log('name de celui là :' + name),
-//                 console.log('image  là :' + image.url),
-//                 console.log('id du coup :' + id)
-//             )
-//         })
-//     })

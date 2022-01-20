@@ -1,5 +1,8 @@
 import styled from 'styled-components'
 import { useEffect, useState } from 'react'
+import colors from '../utils/colors'
+import Card from '../components/Card'
+import DoNotFound from '../components/DoNotFound'
 // import { SearchNameContext } from '../utils/context'
 
 // Style part //
@@ -10,8 +13,17 @@ const ContainerStyle = styled.div`
     align-items: center;
     flex-direction: column;
     width: 100vw;
-    background-color: pink;
+    background-color: ${colors.primary};
+    color: ${colors.textColor};
 `
+
+const UlStyled = styled.ul`
+    display: flex;
+    width: 85%;
+    justify-content: center;
+    flex-wrap: wrap;
+`
+
 // Functions part //
 
 function Character() {
@@ -44,19 +56,24 @@ function Character() {
 
     return (
         <ContainerStyle>
-            <h1>Voici ce que j'ai trouvé pour {characterName}</h1>
-            <ul>
-                Valeur :
-                {character.map(({ name, image, id }, index) => {
-                    return (
-                        <div key={`${name}-${index}`}>
-                            <h3>{name}</h3>
-                            <img src={image.url} alt={`photo de ${name}`} />
-                            <p>{id}</p>
-                        </div>
-                    )
-                })}
-            </ul>
+            <h1>Voici ce que j'ai trouvé pour : " {characterName} "</h1>
+            <UlStyled>
+                {character.map(
+                    ({ name, image, id, biography, appearance }, index) => {
+                        return (
+                            <Card
+                                key={`${name}-${id}`}
+                                name={name}
+                                image={image.url}
+                                alt={`photo de ${name}`}
+                                race={appearance.race}
+                                publisher={biography.publisher}
+                                alignment={biography.alignment}
+                            ></Card>
+                        )
+                    }
+                )}
+            </UlStyled>
         </ContainerStyle>
     )
 }
