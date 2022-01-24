@@ -26,6 +26,9 @@ const LinkStyle = styled(Link)`
     margin: auto 20px;
     color: ${colors.primary};
     font-weight: bold;
+    &:hover {
+        transform: scale(1.2);
+    }
 `
 
 function Header() {
@@ -35,9 +38,6 @@ function Header() {
                 <MainLogo src={fysLogo} alt="logo de Find your Superhero" />
             </a>
             <LinkWrapper>
-                {/* <LinkStyle href="/character">Voir des exemples</LinkStyle>
-                <LinkStyle href="/">Trouver le héros</LinkStyle> */}
-                <LinkStyle to="/character">Voir des exemples</LinkStyle>
                 <LinkStyle to="/">Trouver un héros</LinkStyle>
             </LinkWrapper>
         </NavStyle>

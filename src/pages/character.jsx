@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import colors from '../utils/colors'
 import Card from '../components/Card'
 import DoNotFound from '../components/DoNotFound'
+import Loading from '../components/Loading'
 // import { SearchNameContext } from '../utils/context'
 
 // Style part //
@@ -13,8 +14,16 @@ const ContainerStyle = styled.div`
     align-items: center;
     flex-direction: column;
     width: 100vw;
+    padding-bottom: 30px;
     background-color: ${colors.primary};
     color: ${colors.textColor};
+`
+const MainTitleStyle = styled.h1`
+    text-align: center;
+    padding: 5px;
+`
+const ParagraphStyle = styled.p`
+    font-style: italic;
 `
 
 const UlStyled = styled.ul`
@@ -31,51 +40,61 @@ function Character() {
     const UrlParams = new URLSearchParams(window.location.search)
     const characterName = UrlParams.get('name')
     const [character, setCharacter] = useState([])
+    const [characterError, setCharacterError] = useState(false)
+    const [loading, setIsLoading] = useState(false)
+    const apiKey = process.env.REACT_APP_ApiKey
 
     useEffect(() => {
+        setIsLoading(true)
         fetch(
-            `https://superheroapi.com/api.php/4714210408672847/search/${characterName}`
+            `https://superheroapi.com/api.php/${apiKey}/search/${characterName}`
         )
             .then((response) => response.json())
             .then(
                 (characterReturned) =>
                     characterReturned.error
-                        ? console.log('erreur de perso')
+                        ? (setCharacterError(true),
+                          console.log('erreur de perso'))
                         : setCharacter(characterReturned.results)
-                // : character.results.map(({ name, image, id }, index) => {
-                //       return (
-                //           console.log('name ' + name),
-                //           console.log('image ' + image.url),
-                //           console.log('id ' + id)
-                //       )
-                //   })
+                // setIsLoading(false)
             )
-    }, [characterName])
+        setIsLoading(false)
+    }, [characterName, apiKey])
 
     // console.log(character.name)
 
-    return (
+    return loading ? (
+        <Loading />
+    ) : characterError === true ? (
+        <DoNotFound />
+    ) : (
         <ContainerStyle>
-            <h1>Voici ce que j'ai trouvé pour : " {characterName} "</h1>
+            <MainTitleStyle>
+                Voici ce que j'ai trouvé pour : " {characterName} "
+            </MainTitleStyle>
+            <ParagraphStyle>
+                Pour revenir à l'accueil et faire une nouvelle recherche clique
+                sur "Trouver un héros" en haut dans le bandeau
+            </ParagraphStyle>
             <UlStyled>
-                {character.map(
-                    ({ name, image, id, biography, appearance }, index) => {
-                        return (
-                            <Card
-                                key={`${name}-${id}`}
-                                name={name}
-                                image={image.url}
-                                alt={`photo de ${name}`}
-                                race={appearance.race}
-                                publisher={biography.publisher}
-                                alignment={biography.alignment}
-                            ></Card>
-                        )
-                    }
-                )}
+                {character.map(({ name, image, id, biography, appearance }) => {
+                    return (
+                        <Card
+                            key={`${name}-${id}`}
+                            name={name}
+                            image={image.url}
+                            alt={`photo de ${name}`}
+                            race={appearance.race}
+                            publisher={biography.publisher}
+                            alignment={biography.alignment}
+                        ></Card>
+                    )
+                })}
             </UlStyled>
         </ContainerStyle>
     )
 }
 
 export default Character
+
+// saved fetch `https://superheroapi.com/api.php/4714210408672847/search/${characterName}`

@@ -14,6 +14,7 @@ const CardStyle = styled.div`
 
 const CardImg = styled.img`
     width: 300px;
+    height: 400px;
 `
 
 function Card({ name, image, id, publisher, alignment, race }) {
@@ -29,11 +30,29 @@ function Card({ name, image, id, publisher, alignment, race }) {
         return race
     }
     return alignment === 'good' ? (
+        race === 'null' ? (
+            <CardStyle key={`${name}-${id}`}>
+                <h3>{name}</h3>
+                <CardImg src={image} alt={`photo de ${name}`} />
+                <p>Studios : {publisher}</p>
+                Race : non communiquée
+                <p>Fait partie des gentils</p>
+            </CardStyle>
+        ) : (
+            <CardStyle key={`${name}-${id}`}>
+                <h3>{name}</h3>
+                <CardImg src={image} alt={`photo de ${name}`} />
+                <p>Studios : {publisher}</p>
+                Race : {race}
+                <p>Fait partie des gentils</p>
+            </CardStyle>
+        )
+    ) : race === 'null' ? (
         <CardStyle key={`${name}-${id}`}>
             <h3>{name}</h3>
             <CardImg src={image} alt={`photo de ${name}`} />
             <p>Studios : {publisher}</p>
-            Race : {race}
+            Race : non communiquée
             <p>Fait partie des gentils</p>
         </CardStyle>
     ) : (

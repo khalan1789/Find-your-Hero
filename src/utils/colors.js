@@ -3,7 +3,7 @@ const colors = {
     secondary: '#ddf91a',
     tercary: '#ea1515',
     textColor: 'white',
-    red: 'red',
+    dark: 'black',
 }
 
 export default colors
