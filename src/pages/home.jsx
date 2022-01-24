@@ -81,8 +81,10 @@ const ParagraphStyle = styled.p`
 // Functions part //
 
 function Home() {
+    // state data
     const [textValue, setTextValue] = useState('')
 
+    // redirection
     const navigate = useNavigate()
     const searchCharacter = (e) => {
         e.preventDefault()

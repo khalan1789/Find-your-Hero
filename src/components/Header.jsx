@@ -38,6 +38,7 @@ function Header() {
                 <MainLogo src={fysLogo} alt="logo de Find your Superhero" />
             </a>
             <LinkWrapper>
+                <LinkStyle to="/about">À propos du site</LinkStyle>
                 <LinkStyle to="/">Trouver un héros</LinkStyle>
             </LinkWrapper>
         </NavStyle>

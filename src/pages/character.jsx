@@ -4,7 +4,6 @@ import colors from '../utils/colors'
 import Card from '../components/Card'
 import DoNotFound from '../components/DoNotFound'
 import Loading from '../components/Loading'
-// import { SearchNameContext } from '../utils/context'
 
 // Style part //
 
@@ -36,13 +35,15 @@ const UlStyled = styled.ul`
 // Functions part //
 
 function Character() {
-    // const { textValue } = useContext(SearchNameContext)
+    // to find user input value
     const UrlParams = new URLSearchParams(window.location.search)
     const characterName = UrlParams.get('name')
+    const apiKey = process.env.REACT_APP_ApiKey
+
+    // states for datas
     const [character, setCharacter] = useState([])
     const [characterError, setCharacterError] = useState(false)
     const [loading, setIsLoading] = useState(false)
-    const apiKey = process.env.REACT_APP_ApiKey
 
     useEffect(() => {
         setIsLoading(true)
@@ -50,18 +51,14 @@ function Character() {
             `https://superheroapi.com/api.php/${apiKey}/search/${characterName}`
         )
             .then((response) => response.json())
-            .then(
-                (characterReturned) =>
-                    characterReturned.error
-                        ? (setCharacterError(true),
-                          console.log('erreur de perso'))
-                        : setCharacter(characterReturned.results)
-                // setIsLoading(false)
+            .then((characterReturned) =>
+                characterReturned.error
+                    ? (setCharacterError(true),
+                      console.log('erreur : personnage non trouvé'))
+                    : setCharacter(characterReturned.results)
             )
-        setIsLoading(false)
+            .then(() => setIsLoading(false))
     }, [characterName, apiKey])
-
-    // console.log(character.name)
 
     return loading ? (
         <Loading />
@@ -96,5 +93,3 @@ function Character() {
 }
 
 export default Character
-
-// saved fetch `https://superheroapi.com/api.php/4714210408672847/search/${characterName}`
