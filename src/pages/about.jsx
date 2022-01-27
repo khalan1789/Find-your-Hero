@@ -3,11 +3,11 @@ import colors from '../utils/colors'
 
 // style part
 const PageContainer = styled.div`
-    height: 100vh;
     background-color: ${colors.primary};
     display: flex;
     justify-content: center;
     align-items: start;
+    min-height: 80vh;
 `
 
 const TextContainer = styled.div`
@@ -19,7 +19,7 @@ const TextContainer = styled.div`
     margin: 20px;
     max-width: 1200px;
 
-    height: auto;
+    height: 100%;
 `
 
 const TitleStyle = styled.h1`

@@ -16,7 +16,7 @@ const HomeStyle = styled.div`
     flex-direction: column;
     align-items: center;
     background-color: ${colors.primary};
-    min-height: 100vh;
+
     color: ${colors.textColor};
     padding: 2%;
 `
@@ -37,6 +37,7 @@ const FormStyle = styled.form`
     display: flex;
     justify-content: center;
     flex-direction: column;
+    margin-bottom: 25px;
 `
 
 const LabelStyle = styled.label`
@@ -111,6 +112,7 @@ function Home() {
                 </LabelStyle>
                 <InputStyled
                     id="characterInput"
+                    data-testid="characterInput"
                     type="text"
                     placeholder=" par exemple : batman, human torch..."
                     onChange={(e) => setTextValue(e.target.value)}

@@ -8,6 +8,7 @@ import Home from './pages/home'
 import Character from './pages/character'
 import Error from './pages/error'
 import About from './pages/about'
+import Footer from './components/Footer'
 
 ReactDOM.render(
     <React.StrictMode>
@@ -17,8 +18,9 @@ ReactDOM.render(
                 <Route exact path="/" element={<Home />} />
                 <Route path="/character" element={<Character />} />
                 <Route path="/about/" element={<About />} />
-                <Route element={<Error />} />
+                <Route path="*" element={<Error />} />
             </Routes>
+            <Footer />
         </Router>
     </React.StrictMode>,
     document.getElementById('root')

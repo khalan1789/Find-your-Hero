@@ -10,6 +10,9 @@ const CardStyle = styled.div`
     margin: 5px;
     max-width: 350px;
     min-width: 300px;
+    @media all and (max-width: 600px) {
+        margin-left: 0;
+    }
 `
 
 const CardImg = styled.img`

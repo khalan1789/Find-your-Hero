@@ -22,7 +22,10 @@ const MainTitleStyle = styled.h1`
     padding: 5px;
 `
 const ParagraphStyle = styled.p`
-    font-style: italic;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
 `
 
 const UlStyled = styled.ul`
@@ -30,6 +33,13 @@ const UlStyled = styled.ul`
     width: 85%;
     justify-content: center;
     flex-wrap: wrap;
+    @media all and (max-width: 600px) {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: no-wrap;
+        padding-left: 0;
+    }
 `
 
 // Functions part //
@@ -93,3 +103,12 @@ function Character() {
 }
 
 export default Character
+
+/* 
+ font-style: italic;
+    display: flex;
+    padding-left: 3px;
+    padding-right: 3px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;*/
