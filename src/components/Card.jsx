@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import colors from '../utils/colors'
 
+// style part
 const CardStyle = styled.div`
     background-color: ${colors.secondary};
     border: 1px solid ${colors.secondary};
@@ -19,19 +20,8 @@ const CardImg = styled.img`
     width: 300px;
     height: 400px;
 `
-
+// function part
 function Card({ name, image, id, publisher, alignment, race }) {
-    function raceValue(race) {
-        // return race.value === 'null' ? (
-        //     <p>Race non renseignée</p>
-        // ) : (
-        //     <p>Race : {race}</p>
-        // )
-        if (race === 'null') {
-            return 'Race non renseignée'
-        }
-        return race
-    }
     return alignment === 'good' ? (
         race === 'null' ? (
             <CardStyle key={`${name}-${id}`}>

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import colors from '../utils/colors'
+import CGU from '../assests/CGU.pdf'
 
 // style part
 
@@ -34,7 +35,9 @@ function Footer() {
                     Benjamin Ducau
                 </AuthorTitle>
             </TitleStyle>
-            <LegalTitle href="/">Mentions légales</LegalTitle>
+            <LegalTitle href="/" download={CGU}>
+                Mentions légales
+            </LegalTitle>
         </ContainerStyle>
     )
 }
