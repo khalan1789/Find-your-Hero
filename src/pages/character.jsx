@@ -103,12 +103,3 @@ function Character() {
 }
 
 export default Character
-
-/* 
- font-style: italic;
-    display: flex;
-    padding-left: 3px;
-    padding-right: 3px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;*/

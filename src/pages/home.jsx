@@ -1,12 +1,6 @@
 import styled from 'styled-components'
 import colors from '../utils/colors'
 import { useNavigate } from 'react-router-dom'
-
-//version avec useContext
-// import { useContext } from 'react'
-// import { SearchNameContext } from '../utils/context'
-
-//version simple avec useState
 import { useState } from 'react'
 
 // Style part//

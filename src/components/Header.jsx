@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-// import fysLogo from '../assests/logo_small_black_white.png'
-// import fysLogo from '../assests/logo_small_icon.png'
 import fysLogo from '../assests/logo_complet.png'
 import colors from '../utils/colors'
+
+// style part //
 
 const NavStyle = styled.nav`
     display: flex;
@@ -51,7 +51,7 @@ const LinkStyle = styled(Link)`
         background-color:${colors.primary};
         color:${colors.secondary};
 `
-
+// function part //
 function Header() {
     return (
         <NavStyle>

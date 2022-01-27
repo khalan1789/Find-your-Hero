@@ -62,7 +62,6 @@ function DoNotFound() {
     return (
         <PageStyle>
             <ContainerStyle>
-                {/* <ImgStyled src={errorImg} alt="illustration image d'erreur" /> */}
                 <MainTitleStyle>
                     Aïe ! Je n'ai rien trouvé correspondant à ta recherche...
                 </MainTitleStyle>
