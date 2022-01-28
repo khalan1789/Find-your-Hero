@@ -1,6 +1,6 @@
 <h1>FIND YOUR HERO</h1>
 
-For my first React's project I wanted to build a little front end app.
+For my first React project I wanted to build a little front end app.
 
 Thinking to my daughter, I've decided to create a simple web site but not only for her, also for little and big childs !
 
