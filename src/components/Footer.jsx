@@ -35,7 +35,7 @@ function Footer() {
                     Benjamin Ducau
                 </AuthorTitle>
             </TitleStyle>
-            <LegalTitle href="/" download={CGU}>
+            <LegalTitle href={CGU} download={CGU}>
                 Mentions légales
             </LegalTitle>
         </ContainerStyle>
