@@ -4,6 +4,7 @@ import colors from '../utils/colors'
 import Card from '../components/Card'
 import DoNotFound from '../components/DoNotFound'
 import Loading from '../components/Loading'
+import { useNavigate } from 'react-router-dom'
 
 // Style part //
 
@@ -55,24 +56,33 @@ function Character() {
     const [characterError, setCharacterError] = useState(false)
     const [loading, setIsLoading] = useState(false)
 
+    // timeOut Function if API problem
+    const navigate = useNavigate()
+    const timeOutApiCall = () => {
+        setTimeout(() => navigate('/overDelay'), 10000)
+    }
+
     useEffect(() => {
         setIsLoading(true)
+        timeOutApiCall()
         fetch(
             `https://superheroapi.com/api.php/${apiKey}/search/${characterName}`
         )
-            .then((response) => response.json())
+            .then((response) => {
+                response.json()
+            })
             .then((characterReturned) =>
                 characterReturned.error
                     ? (setCharacterError(true),
                       console.log('erreur : personnage non trouvé'))
                     : setCharacter(characterReturned.results)
             )
-            .then(() => setIsLoading(false))
-    }, [characterName, apiKey])
+            .then(() => setIsLoading(false), clearTimeout(timeOutApiCall))
+    }, [characterName])
 
     return loading ? (
         <Loading />
-    ) : characterError === true ? (
+    ) : characterError ? (
         <DoNotFound />
     ) : (
         <ContainerStyle>
