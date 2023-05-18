@@ -13,7 +13,7 @@ Les coûts d'hébergement et de fonctionnement étant devenus trop important, j'
 Cependant, cette application, aussi simple soit-elle, je l'ai conçue pour les autres, et elle fonctionne très bien de manière locale sur un ordianteur chez soi.
 Ce serait dommage que cela ne puisse pas profiter à d'autres, c'est pourquoi je la mets à disposition de tous.
 
-<h5>Que peut-on faire avec ?</h5>
+<h3>Que peut-on faire avec ?</h3>
 
 Rechercher des informations sur d'éventuels superhéros, par rapport au nom que l'on aura rentré dans le champ de recherche et, bien sûr, suivant ce que la base de donnée a comme infos conernant la demande.
 Comme évoqué avant, c'est une application qui se veut la plus simple possible et pensée essentiellement pour être utilisée par des enfants !
