@@ -31,7 +31,10 @@ function Footer() {
         <ContainerStyle>
             <TitleStyle>
                 Site réalisé par
-                <AuthorTitle href="https://www.linkedin.com/in/benjamin-ducau/">
+                <AuthorTitle
+                    target="blanck"
+                    href="https://www.linkedin.com/in/benjamin-ducau/"
+                >
                     Benjamin Ducau
                 </AuthorTitle>
             </TitleStyle>

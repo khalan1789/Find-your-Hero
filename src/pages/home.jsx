@@ -120,7 +120,7 @@ function Home() {
                     👀
                 </ParagraphStyle>
                 <ButtonStyle onSubmit={(e) => searchCharacter(e)}>
-                    C'est parti 🐱‍🏍
+                    C'est parti 🦸
                 </ButtonStyle>
             </FormStyle>
         </HomeStyle>

@@ -58,27 +58,26 @@ function Character() {
 
     // timeOut Function if API problem
     const navigate = useNavigate()
-    const timeOutApiCall = () => {
-        setTimeout(() => navigate('/overDelay'), 10000)
-    }
 
     useEffect(() => {
         setIsLoading(true)
-        timeOutApiCall()
+        const timer = setTimeout(() => navigate('/overDelay'), 10000)
         fetch(
             `https://superheroapi.com/api.php/${apiKey}/search/${characterName}`
         )
             .then((response) => {
-                response.json()
+                clearTimeout(timer)
+                response
+                    .json()
+                    .then((characterReturned) =>
+                        characterReturned.error
+                            ? (setCharacterError(true),
+                              console.log('erreur : personnage non trouvé'))
+                            : setCharacter(characterReturned.results)
+                    )
             })
-            .then((characterReturned) =>
-                characterReturned.error
-                    ? (setCharacterError(true),
-                      console.log('erreur : personnage non trouvé'))
-                    : setCharacter(characterReturned.results)
-            )
-            .then(() => setIsLoading(false), clearTimeout(timeOutApiCall))
-    }, [characterName])
+            .then(() => setIsLoading(false))
+    }, [])
 
     return loading ? (
         <Loading />
