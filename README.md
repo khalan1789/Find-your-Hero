@@ -22,12 +22,12 @@ Comme évoqué avant, c'est une application qui se veut la plus simple possible 
 
 1. Il vous faudra d'abord télécharger localement l'application sur votre machine. Pour ce faire deux solutions :
 
--   cloner le projet dans votre dossier de destination via la commande git clone suivi de l'url que vous donnera github pour cela
+-   cloner le projet dans votre dossier de destination via la commande `git clone https://github.com/khalan1789/Find-your-Hero.git`
 -   télécharger directement le fichier compressé et l'ouvrir dans votre répertoire de destination
 
 2. Il vous faudra installer l'application en lançant la commande npm install depuis le dossier où est l'application
 
-3. Afin de pouvoir communiquer avec l'api, il vous faudra vous enregistrer auprès d'elle afin d'obtenir une clé d'ahutentification. Cette clé, il faudra la mettre à la place de ${apikey} à la ligne 66 du fichier character.jsx (qui se situe dans src/pages/) ou bien créer une variable d'environnement REACT_APP_ApiKey si vous savez faire et mettre donc en valeur la clé obtenue.
+3. Afin de pouvoir communiquer avec l'api, il vous faudra vous enregistrer auprès d'elle afin d'obtenir une clé d'ahutentification. Cette clé, il faudra la mettre à la place de ${apikey} à la ligne 66 du fichier character.jsx (qui se situe dans src/pages/) ou bien créer une variable d'environnement `REACT_APP_ApiKey` si vous savez faire et mettre donc en valeur la clé obtenue.
    Pour obtenir cette clé, voici le lien de l'api où il faudra vous inscrire : https://superheroapi.com/ .
    Il est à noter que sans elle, vous ne pourrez pas utiliser correctement l'application puisque les recherches de personnage n'aboutiront pas.
 
