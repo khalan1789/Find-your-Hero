@@ -33,5 +33,5 @@ Comme évoqué avant, c'est une application qui se veut la plus simple possible 
 
 <h3>Lancer l'application</h3>
 
-Toujours depuis le dossier où vous avez installé l'application, lancez la commande `npm start` et l'application devrait démarrer quelques secondes après, ouvrant un onglet de navigation via le port localhost:3000 (le plus souvent) ou un autre.
+Toujours depuis le dossier où vous avez installé l'application, lancez la commande `npm start` et l'application devrait démarrer quelques secondes après, ouvrant un onglet de navigation via le port `localhost:3000` (le plus souvent) ou un autre.
 Voilà, ça y est, vous pouvez maintenant l'utiliser 😊
